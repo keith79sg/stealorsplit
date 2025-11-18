@@ -45,6 +45,18 @@
     font-size: 24px;
   }
 
+  #reset {
+    margin-top: 20px;
+    font-size: 18px;
+    text-decoration: underline;
+    color: #007BFF;
+    cursor: pointer;
+  }
+
+  #reset:hover {
+    color: #0056b3;
+  }
+
   @media (max-width: 768px) {
     body {
       padding: 20px;
@@ -63,6 +75,9 @@
       font-size: 20px;
       text-align: center;
     }
+    #reset {
+      font-size: 18px;
+    }
   }
 </style>
 </head>
@@ -72,24 +87,28 @@
   <button id="stealBtn" onclick="selectChoice('Steal')">Steal</button>
 
   <div id="result"></div>
+  <div id="reset" onclick="resetPage()">Reset</div>
 
   <script>
     function selectChoice(choice) {
       document.getElementById("result").innerText = "You selected: " + choice;
 
-      // Determine selected and non-selected button
       const splitBtn = document.getElementById('splitBtn');
       const stealBtn = document.getElementById('stealBtn');
 
       if (choice === 'Split') {
         splitBtn.disabled = true;
         stealBtn.disabled = true;
-        stealBtn.classList.add('disabled'); // grey out the other button
+        stealBtn.classList.add('disabled');
       } else {
         splitBtn.disabled = true;
         stealBtn.disabled = true;
-        splitBtn.classList.add('disabled'); // grey out the other button
+        splitBtn.classList.add('disabled');
       }
+    }
+
+    function resetPage() {
+      location.reload(); // reloads the page
     }
   </script>
 </body>
