@@ -14,8 +14,15 @@
     height: 100vh;
     margin: 0;
     background: #f2f2f2;
+    padding: 20px;
+    text-align: center;
   }
   h1 {
+    margin-bottom: 10px;
+  }
+  p {
+    max-width: 600px;
+    font-size: 18px;
     margin-bottom: 20px;
   }
   button {
@@ -59,7 +66,6 @@
 
   @media (max-width: 768px) {
     body {
-      padding: 20px;
       height: auto;
     }
     button {
@@ -69,11 +75,12 @@
     }
     h1 {
       font-size: 22px;
-      text-align: center;
+    }
+    p {
+      font-size: 16px;
     }
     #result {
       font-size: 20px;
-      text-align: center;
     }
     #reset {
       font-size: 18px;
@@ -82,7 +89,12 @@
 </style>
 </head>
 <body>
-  <h1>Choose Your Move!</h1>
+  <h1>Split or Steal</h1>
+
+  <p>
+    "Split or Steal" is a simple decision-based game where two players simultaneously choose to either cooperate and split a reward, or attempt to take it all for themselves. Your choice determines your outcome, but beware — the other player’s decision affects whether you win big, share, or get nothing.
+  </p>
+
   <button id="splitBtn" onclick="selectChoice('Split')">Split</button>
   <button id="stealBtn" onclick="selectChoice('Steal')">Steal</button>
 
@@ -108,7 +120,7 @@
     }
 
     function resetPage() {
-      location.reload(); // reloads the page
+      location.reload();
     }
   </script>
 </body>
