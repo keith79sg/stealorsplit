@@ -26,16 +26,25 @@
     border-radius: 10px;
     cursor: pointer;
     transition: 0.2s;
-    width: 200px; /* <- Set same width for both buttons */
+    width: 200px;
   }
   #splitBtn { background: #4CAF50; color: white; }
   #splitBtn:hover { background: #45a049; }
   #stealBtn { background: #f44336; color: white; }
   #stealBtn:hover { background: #da190b; }
+
+  /* Greyed out style for non-selected button */
+  .disabled {
+    background: #ccc !important;
+    color: #666 !important;
+    cursor: not-allowed;
+  }
+
   #result {
     margin-top: 30px;
     font-size: 24px;
   }
+
   @media (max-width: 768px) {
     body {
       padding: 20px;
@@ -67,6 +76,20 @@
   <script>
     function selectChoice(choice) {
       document.getElementById("result").innerText = "You selected: " + choice;
+
+      // Determine selected and non-selected button
+      const splitBtn = document.getElementById('splitBtn');
+      const stealBtn = document.getElementById('stealBtn');
+
+      if (choice === 'Split') {
+        splitBtn.disabled = true;
+        stealBtn.disabled = true;
+        stealBtn.classList.add('disabled'); // grey out the other button
+      } else {
+        splitBtn.disabled = true;
+        stealBtn.disabled = true;
+        splitBtn.classList.add('disabled'); // grey out the other button
+      }
     }
   </script>
 </body>
